@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biography | SelfDamage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        header {
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-content {
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        h1 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 10%;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(90deg, #000, #fff, #000);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            opacity: 0.8;
+            margin-bottom: 40px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .bio-section {
+            padding: 60px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .bio-image {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .bio-image img {
+            width: 100%;
+            border-radius: 10px;
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        .bio-image img:hover {
+            filter: grayscale(0%);
+        }
+
+        .bio-content {
+            flex: 2;
+            min-width: 300px;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .bio-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .bio-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background: #fff;
+        }
+
+        .bio-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .skills-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-card {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .social-section {
+            padding: 80px 0;
+            text-align: center;
+            background: #1a1a1a;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        .social-card {
+            background: #0a0a0a;
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            animation: fadeIn 2.5s ease-out;
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .social-card a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .social-card:hover i.fa-github { color: #6e5494; }
+        .social-card:hover i.fa-discord { color: #5865f2; }
+        .social-card:hover i.fa-twitter { color: #1da1f2; }
+        .social-card:hover i.fa-telegram { color: #0088cc; }
+        .social-card:hover i.fa-roblox { color: #ff7a00; }
+        .social-card:hover i.fa-youtube { color: #ff0000; }
+
+        .social-card span {
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        footer {
+            padding: 30px 0;
+            text-align: center;
+            background: #000;
+            border-top: 1px solid #222;
+        }
+
+        .rotating-element {
+            display: inline-block;
+            animation: rotate 10s linear infinite;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .bio-section {
+                flex-direction: column;
+            }
+            
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>BIOGRAPHY</h1>
+                <p class="tagline">Разработчик &middot; Модмейкер &middot; Python-энтузиаст</p>
+            </div>
+        </header>
+
+        <section class="bio-section">
+            <div class="bio-image">
+                <img src="https://i.pinimg.com/736x/da/f8/b7/daf8b779b2db6ba01f4685e30f7a71e2.jpg" alt="Profile">
+            </div>
+            <div class="bio-content">
+                <h2>Сап, я SelfDamage</h2>
+                <p>Я начинающий разработчик, увлекаюсь созданием модов для игр и разработкой приложений на Python. Мне нравится экспериментировать с кодом и находить новые способы решения задач.</p>
+                <p>В настоящее время я изучаю различные технологии и frameworks, чтобы улучшить свои навыки программирования. Моя цель - создавать интересные проекты, которые будут полезны сообществу.</p>
+                <p>Если у тебя есть идеи для коллаборации или вопросы по моддингу - не стесняйся связаться со мной через мои социальные сети!</p>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <h2>Навыки и экспертиза</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Python разработка</h3>
+                    <p>Создание приложений и скриптов на Python</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Моддинг игр</h3>
+                    <p>Создание модов и кастомизация игр</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Инструменты разработки</h3>
+                    <p>Работа с различными SDK и инструментами</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Прототипирование</h3>
+                    <p>Быстрое создание прототипов и концептов</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="social-section">
+            <h2>Мои социальные сети</h2>
+            <p>Свяжись со мной через эти платформы</p>
+            
+            <div class="social-grid">
+                <div class="social-card">
+                    <a href="https://github.com/selfdamage" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+                <div class="social-card">
+                    <a href="#" onclick="alert('Discord: selfdamage')">
+                        <i class="fab fa-discord"></i>
+                        <span>Discord</span>
+                    </a>
+                </div>
+                <div class="social-card">
+                    <a href="https://x.com/selfdamagedev" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                </div>
+                <div class="social-card">
+                    <a href="https://t.me/onlygodtellme" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                        <span>Telegram</span>
+                    </a>
+                </div>
+                <div class="social-card">
+                    <a href="https://www.roblox.com/users/3231425182/profile" target="_blank">
+                        <i class="fab fa-roblox"></i>
+                        <span>Roblox</span>
+                    </a>
+                </div>
+                <!-- Изменили кнопку YouTube -->
+                <div class="social-card">
+                    <a href="#" onclick="playFullscreenVideo(event)">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="rotating-element">
+                <i class="fas fa-circle-notch"></i>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 SelfDamage. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Скрытое видео -->
+    <video id="myVideo" src="video.mp4" style="display:none;"></video>
+
+    <script>
+        // Анимация при прокрутке
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.skill-card, .social-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeIn 1.5s ease-out forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                observer.observe(el);
+            });
+        });
+
+        // Функция запуска видео в полноэкранном режиме
+        function playFullscreenVideo(event) {
+            event.preventDefault();
+            const video = document.getElementById("myVideo");
+            video.style.display = "block";
+            video.play();
+
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
